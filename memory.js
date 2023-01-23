@@ -1,5 +1,5 @@
 const clicked = { emoji: 0, index: 0 };
-const score = document.getElementById("score");
+let score = document.getElementById("score");
 let counter = 0;
 
 function getRandIndex(arr) {
@@ -8,7 +8,6 @@ function getRandIndex(arr) {
 }
 
 function newGame() {
-    console.log("Starting the game");
     const emojis = ["😎", "😎", "😤", "😤", "😴", "😴", "🙄", "🙄", "😇", "😇", "😈", "😈"];
     const randEmojis = [];
 
@@ -18,24 +17,19 @@ function newGame() {
         randEmojis.push(currEmoji[0]);
     }
 
-    console.log(randEmojis, "<-- new array with random emojis");
-
     const buttons = document.getElementsByClassName("in-game");
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].disabled = false;
-        buttons[i].innerText = "error?";
+        buttons[i].innerText = "emoji";
         buttons[i].setAttribute(
             "onclick",
             `toggleEmoji('${randEmojis[i]}', ${ i + 1 })`
         );
         
     }
-
+    score = document.getElementById("score");
     counter = 0;
-
-    const score = document.getElementsByClassName("score");
-
-    score.innerText = "Score: 0";
+    score.innerText = `Score: ${counter}`;
 }
 
 function toggleEmoji(emoji, index) {
@@ -50,30 +44,36 @@ function toggleEmoji(emoji, index) {
         clicked.index = index;
     }
     
-    console.log(document.getElementById(`but${index}`));
+    /*console.log(document.getElementById(`but${index}`));
     console.log(index);
 
     console.log(document.getElementById(`but${clicked.index}`));
     console.log(clicked.index);
 
-    console.log(counter);
-    if(emoji === clicked.emoji && clicked.index !== index) {
-        console.log("emoji are the same");
+    console.log(counter);*/
+
+     else {
+        if(emoji === clicked.emoji && clicked.index !== index) {
         button.disabled = true;
         prevButton.disabled = true;
 
         clicked.emoji = 0;
         clicked.index = 0;
-
+            
+        score = document.getElementById("score");
         counter += 1;
-
-        const score = document.getElementsByClassName("score");
         score.innerText =`Score: ${counter}`;
 
-        console.log(counter);
-
         if (counter === 6) {
-            document.getElementById("winMsg").style.color = "red";
+            document.getElementById("winMsg").style.color = "green";
         }
+     } else { // make them go back
+        setTimeout(() => {
+            button.innerText = "emoji";
+            prevButton.innerText = "emoji";
+        }, 1000);
+        clicked.emoji = 0;
+        clicked.index = 0;
+    } 
     }
 }
