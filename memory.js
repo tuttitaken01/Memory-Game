@@ -42,17 +42,7 @@ function toggleEmoji(emoji, index) {
     if(clicked.emoji === 0) {
         clicked.emoji = emoji;
         clicked.index = index;
-    }
-    
-    /*console.log(document.getElementById(`but${index}`));
-    console.log(index);
-
-    console.log(document.getElementById(`but${clicked.index}`));
-    console.log(clicked.index);
-
-    console.log(counter);*/
-
-     else {
+    } else {
         if(emoji === clicked.emoji && clicked.index !== index) {
         button.disabled = true;
         prevButton.disabled = true;
@@ -65,7 +55,7 @@ function toggleEmoji(emoji, index) {
         score.innerText =`Score: ${counter}`;
 
         if (counter === 6) {
-            document.getElementById("winMsg").style.color = "green";
+            document.getElementById("winMsg").style.color = "white";
         }
      } else { // make them go back
         setTimeout(() => {
