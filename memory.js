@@ -20,7 +20,7 @@ function newGame() {
     const buttons = document.getElementsByClassName("in-game");
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].disabled = false;
-        buttons[i].innerText = "emoji";
+        buttons[i].innerText = "";
         buttons[i].setAttribute(
             "onclick",
             `toggleEmoji('${randEmojis[i]}', ${ i + 1 })`
@@ -55,13 +55,13 @@ function toggleEmoji(emoji, index) {
         score.innerText =`Score: ${counter}`;
 
         if (counter === 6) {
-            document.getElementById("winMsg").style.color = "white";
+            document.getElementById("winMsg").style.color = "darkmagenta";
         }
      } else { // make them go back
         setTimeout(() => {
-            button.innerText = "emoji";
-            prevButton.innerText = "emoji";
-        }, 1000);
+            button.innerText = "";
+            prevButton.innerText = "";
+        }, 500);
         clicked.emoji = 0;
         clicked.index = 0;
     } 

@@ -2,6 +2,10 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="memory.css"/>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Play" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.cdnfonts.com/css/new-super-mario-font-u" >
+        <link rel="stylesheet" type="text/css" href="https://fonts.cdnfonts.com/css/8bit-wonder">
+        <link rel="stylesheet" type="text/css" href="https://fonts.cdnfonts.com/css/rubik-wet-paint">
         <title>Memory game</title>
         <script src="memory.js"></script>
     </head>
@@ -11,11 +15,13 @@
             <h1>Emoji Memory Game</h1>
             <p class="instruction">Your aim is to match pairs of the same emoji.</p>
         </section>
-
+        <div>
         <!-- scoring -->
-        <button class="newGame" onclick="newGame()">START new game</button>
-        <p class="score" id="score"></p>
-        <p class="victory" id="winMsg">You won!</p>
+        <button class="newGame" onclick="newGame()">START</button>
+        </div>
+        <div>
+        <p class="score" id="score">Score: 0</p>
+        </div>
 
         <!-- game -->
         <main>
@@ -38,5 +44,8 @@
                 <button class="in-game" id="but12" onclick="toggleEmoji('😴', 12)"></button>
             </div>
         </main>
+
+        <p class="victory" id="winMsg">You won!</p>
+
     </body>
 </html>
